@@ -1,15 +1,14 @@
-#include "main.h"
-#include <stdio.h>
+#include"main.h"
+#include<stdio.h>
 /**
- * reset_to_98 - modify the value
- *
- * @n: pointer to takes in to modify
- *
- * Return: Void
- */
+*main - mainfunction
+*reset_to_98: modify the value
+*@n:pointertothevalue
+*Return:Void
+*/
 
-void reset_to_98(int *n)
+voidreset_to_98(int*n)
 
 {
-	*n = 98;
+	*n=98;
 }
