@@ -2,7 +2,7 @@
 #include <string.h>
 /**
  * _strncat - the function that prints the string
- * @dest: the destionation the of the string
+ * @dest: the destination of the string
  * @src: the source of the string
  * @n: the value of the string
  * Return: dest
