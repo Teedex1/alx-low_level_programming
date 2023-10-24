@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stddef.h>
+
 /**
  * _strchr - the function to search for char
  * @s: pointer to the  storage
@@ -18,5 +18,5 @@ char *_strchr(char *s, char c)
 			return (&s[i]);
 		}
 	}
-	return (NULL);
+	return (0);
 }
