@@ -2,7 +2,7 @@
 /**
  * is_prime_number - the function that returns a prime number
  * @a: int
- * is_divisible - function checks if a number a is divisible
+ * is_divisible: function checks if a number a is divisible
  * @divisor: the devisor
  * Return: success
  */

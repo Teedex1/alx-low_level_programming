@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * _sqrt_recursion - the actual recursion
- * @b: iltration
- * @n: the int
- * Return 0(success)
- */
+* custom_sqrt - recursively finds the square root of a non-negative integer
+* @b: iltration
+* @n: the int
+* Return:  success 1.
+*/
 
 int custom_sqrt(int n, int b)
 {
@@ -14,6 +14,12 @@ int custom_sqrt(int n, int b)
 		return (-1);
 	return (custom_sqrt(n, b + 1));
 }
+
+/*
+ * _sqrt_recursion - the square root recursion
+ *
+ * Return: success 1.
+ */
 int _sqrt_recursion(int n)
 {
 	return (custom_sqrt(n, 1));
