@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 /**
  * main - the main function
  *
@@ -6,6 +7,7 @@
  */
 int main(void)
 {
-	printf("%s\n", "2-main.c");
+
+	printf("%s\n", __FILE__);
 	return (0);
 }

@@ -1,7 +1,13 @@
 #include <stdio.h>
-
-int main()
+#include <string.h>
+/**
+ * main - the main function
+ *
+ * Return: (0) success
+ */
+int main(void)
 {
-	printf("%s\n", "2-main.c");
+
+	printf("%s\n", __FILE__);
 	return (0);
 }
