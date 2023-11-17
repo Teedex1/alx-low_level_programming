@@ -11,11 +11,11 @@
  * @next: pointer to next node
  * Description: singly linked list
  */
-typedef struct list_t
+typedef struct list_s
 {
 	char *str;
 	unsigned int len;
-	struct list_t *next;
+	struct list_s *next;
 } list_t;
 size_t print_list(const list_t *h);
 size_t list_len(const list_t *h);
