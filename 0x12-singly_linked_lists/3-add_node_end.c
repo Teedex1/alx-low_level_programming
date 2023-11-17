@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * add_node - add a new node
+ * add_node_end - add a new node
  * @head: pointer
  * @str: string
  * Return: the address or NULL
@@ -35,7 +35,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		l = *head;
 		while (l->next != NULL)
 			l = l->next;
-		l-> next = i;
+		l->next = i;
 	}
 
 	return (*head);
