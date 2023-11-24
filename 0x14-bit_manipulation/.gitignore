@@ -1,2 +1,5 @@
-tests/
+# Ignore all files names main.c
 main.c
+
+# Ignore file named a through h
+[a-h]
