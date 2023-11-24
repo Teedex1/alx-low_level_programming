@@ -1,2 +1,2 @@
-# Ignore test files
-*.main.c
+tests/
+main.c
