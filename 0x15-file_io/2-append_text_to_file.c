@@ -21,13 +21,23 @@ int append_text_to_file(const char *filename, char *text_content)
 		len = strlen(text_content);
 		if (len > 0 && text_content[len - 1] != '\n')
 		{
-			text_content[len] = '\n';
-			text_content[len + 1] = '\0';
+			if (len + 1 < BUF_SIZE)
+			{
+				text_content[len] = '\n';
+				text_content[len + 1] = '\0';
+			}
+			else
+			{
+				close(file_descriptor);
+				return (-1);
+			}
 		}
-
 		bytes_written = write(file_descriptor, text_content, strlen(text_content));
 		if (bytes_written == -1)
+		{
+			close(file_descriptor);
 			return (-1);
+		}
 	}
 
 	if (file_descriptor != -1)
@@ -37,5 +47,4 @@ int append_text_to_file(const char *filename, char *text_content)
 	}
 
 	return (1);
-
 }
