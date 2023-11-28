@@ -32,6 +32,14 @@ int main(int argc, char *argv[])
 		close(from);
 		exit(99);
 	}
+
+	copy_file_contents(from, to, buffer, BUF_SIZE);
+
+	close(from);
+	close(to);
+
+	return (0);
+}
 	do {
 		bytesRead = read(from, buffer, BUF_SIZE);
 		if (bytesRead == -1)
@@ -45,17 +53,21 @@ int main(int argc, char *argv[])
 		if (bytesRead > 0)
 		{
 			bytesWritten = write(to, buffer, bytesRead);
-		if (bytesRead == -1 || bytesRead != bytesWritten)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			
+			if (bytesRead == -1 || bytesRead != bytesWritten)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 				close(from);
 				close(to);
 				exit(99);
-		}
+			}
+		
 		}
 
 	} while (bytesRead > 0);
+	
 	close(from);
 	close(to);
+	
 	return (0);
 }
