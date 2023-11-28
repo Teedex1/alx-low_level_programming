@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
 	int from, to;
 	char buffer[BUF_SIZE];
-	ssize_t bytesRead, bytesWritten;
+	int bytesRead, bytesWritten;
 
 	if (argc != 3)
 	{
@@ -33,13 +33,6 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	copy_file_contents(from, to, buffer, BUF_SIZE);
-
-	close(from);
-	close(to);
-
-	return (0);
-}
 	do {
 		bytesRead = read(from, buffer, BUF_SIZE);
 		if (bytesRead == -1)
