@@ -15,8 +15,9 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (-1);
 
 	file_descriptor = open(filename, O_WRONLY | O_APPEND | O_CREAT, 0600);
-
-	if (file_descriptor != -1 && text_content)
+	if (file_descriptor == -1)
+		return (-1);
+	if (text_content)
 	{
 		len = strlen(text_content);
 		if (len > 0 && text_content[len - 1] != '\n')
@@ -39,7 +40,6 @@ int append_text_to_file(const char *filename, char *text_content)
 			return (-1);
 		}
 	}
-
 	if (file_descriptor != -1)
 	{
 		if (close(file_descriptor) == -1)
