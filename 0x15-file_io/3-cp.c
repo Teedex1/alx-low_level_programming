@@ -1,20 +1,5 @@
 #include "main.h"
 /**
- * close_file -  closes file descriptor
- * @fd: The descriptor to be closed
- */
-void close_file(int fd)
-{
-	int c = close(fd);
-
-	if (c == -1)
-	{
-		dprintf(STDERR_FILENO, "Erroe: can't close fd %d/n", fd);
-		exit(100);
-	}
-}
-
-/**
  *
  * main - copies the content of a file to another
  * @argc: argument
@@ -37,13 +22,13 @@ int main(int argc, char *argv[])
 	from = open(argv[1], O_RDONLY);
 	if (from == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		close(from);
 		exit(99);
 	}
@@ -51,13 +36,15 @@ int main(int argc, char *argv[])
 		bytesRead = read(from, buffer, BUF_SIZE);
 		if (bytesRead == -1)
 		{
-		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		close(from);
 		close(to);
 		exit(98);
 		}
-
-		bytesWritten = write(to, buffer, bytesRead);
+		
+		if (bytesRead > 0)
+		{
+			bytesWritten = write(to, buffer, bytesRead);
 		if (bytesRead == -1 || bytesRead != bytesWritten)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
@@ -65,6 +52,8 @@ int main(int argc, char *argv[])
 				close(to);
 				exit(99);
 		}
+		}
+
 	} while (bytesRead > 0);
 	close(from);
 	close(to);
