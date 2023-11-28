@@ -1,6 +1,5 @@
 #include "main.h"
 /**
- *
  * main - copies the content of a file to another
  * @argc: argument
  * @argv: argument vector
@@ -42,11 +41,11 @@ int main(int argc, char *argv[])
 		close(to);
 		exit(98);
 		}
-		
+
 		if (bytesRead > 0)
 		{
 			bytesWritten = write(to, buffer, bytesRead);
-			
+
 			if (bytesRead == -1 || bytesRead != bytesWritten)
 			{
 				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
@@ -54,13 +53,13 @@ int main(int argc, char *argv[])
 				close(to);
 				exit(99);
 			}
-		
+
 		}
 
 	} while (bytesRead > 0);
-	
+
 	close(from);
 	close(to);
-	
+
 	return (0);
 }
